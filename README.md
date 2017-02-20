@@ -250,6 +250,7 @@ Big thanks to Jed Watson there.
 
 ### Changelog
 
+- `1.0.5` - Feb 20, 2017 - Add handler for onKeyDown 
 - `1.0.4` - Feb 20, 2017 - Pass original event into onChange event 
 - `1.0.3` - Jan 2, 2016 - updated country-region-data, repo link fix. 
 - `1.0.2` - October 16, 2016 - Fix issue where source-data.js in lib had no country data.

@@ -41,11 +41,12 @@ class CountryDropdown extends React.Component {
   }
 
   render () {
-    const { name, id, classes, value, onChange } = this.props;
+    const { name, id, classes, value, onChange, onKeyDown } = this.props;
     const attrs = {
       name,
       defaultValue: value,
-      onChange: (e) => onChange(e.target.value, e)
+      onChange: (e) => onChange(e.target.value, e),
+      onKeyDown: (e) => onKeyDown(e.target.value, e)
     };
     if (id) {
       attrs.id = id;
@@ -70,6 +71,7 @@ CountryDropdown.propTypes = {
   showDefaultOption: React.PropTypes.bool,
   defaultOptionLabel: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
   onChange: React.PropTypes.func,
+  onKeyDown: React.PropTypes.func,
   labelType: React.PropTypes.oneOf([C.DISPLAY_TYPE_FULL, C.DISPLAY_TYPE_SHORT]),
   valueType: React.PropTypes.oneOf([C.DISPLAY_TYPE_FULL, C.DISPLAY_TYPE_SHORT]),
   whitelist: React.PropTypes.array,
@@ -83,6 +85,7 @@ CountryDropdown.defaultProps = {
   showDefaultOption: true,
   defaultOptionLabel: 'Select Country',
   onChange: () => {},
+  onKeyDown: () => {},
   labelType: C.DISPLAY_TYPE_FULL,
   valueType: C.DISPLAY_TYPE_FULL,
   whitelist: [],

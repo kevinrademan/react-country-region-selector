@@ -472,12 +472,16 @@ var CountryDropdown = (function (_React$Component) {
       var classes = _props3.classes;
       var value = _props3.value;
       var _onChange = _props3.onChange;
+      var _onKeyDown = _props3.onKeyDown;
 
       var attrs = {
         name: name,
         defaultValue: value,
         onChange: function onChange(e) {
           return _onChange(e.target.value, e);
+        },
+        onKeyDown: function onKeyDown(e) {
+          return _onKeyDown(e.target.value, e);
         }
       };
       if (id) {
@@ -502,6 +506,7 @@ CountryDropdown.propTypes = {
   showDefaultOption: _react2['default'].PropTypes.bool,
   defaultOptionLabel: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.string, _react2['default'].PropTypes.number]),
   onChange: _react2['default'].PropTypes.func,
+  onKeyDown: _react2['default'].PropTypes.func,
   labelType: _react2['default'].PropTypes.oneOf([C.DISPLAY_TYPE_FULL, C.DISPLAY_TYPE_SHORT]),
   valueType: _react2['default'].PropTypes.oneOf([C.DISPLAY_TYPE_FULL, C.DISPLAY_TYPE_SHORT]),
   whitelist: _react2['default'].PropTypes.array,
@@ -515,6 +520,7 @@ CountryDropdown.defaultProps = {
   showDefaultOption: true,
   defaultOptionLabel: 'Select Country',
   onChange: function onChange() {},
+  onKeyDown: function onKeyDown() {},
   labelType: C.DISPLAY_TYPE_FULL,
   valueType: C.DISPLAY_TYPE_FULL,
   whitelist: [],
