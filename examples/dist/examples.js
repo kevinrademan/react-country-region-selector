@@ -372,15 +372,15 @@ var _createClass = (function () {
   };
 })();
 
-var _get = function get(_x3, _x4, _x5) {
+var _get = function get(_x, _x2, _x3) {
   var _again = true;_function: while (_again) {
-    var object = _x3,
-        property = _x4,
-        receiver = _x5;_again = false;if (object === null) object = Function.prototype;var desc = Object.getOwnPropertyDescriptor(object, property);if (desc === undefined) {
+    var object = _x,
+        property = _x2,
+        receiver = _x3;_again = false;if (object === null) object = Function.prototype;var desc = Object.getOwnPropertyDescriptor(object, property);if (desc === undefined) {
       var parent = Object.getPrototypeOf(object);if (parent === null) {
         return undefined;
       } else {
-        _x3 = parent;_x4 = property;_x5 = receiver;_again = true;desc = parent = undefined;continue _function;
+        _x = parent;_x2 = property;_x3 = receiver;_again = true;desc = parent = undefined;continue _function;
       }
     } else if ('value' in desc) {
       return desc.value;
@@ -472,7 +472,7 @@ var CountryDropdown = (function (_React$Component) {
       var classes = _props3.classes;
       var value = _props3.value;
       var _onChange = _props3.onChange;
-      var onKeyDown = _props3.onKeyDown;
+      var _onKeyDown = _props3.onKeyDown;
 
       var attrs = {
         name: name,
@@ -480,19 +480,9 @@ var CountryDropdown = (function (_React$Component) {
         onChange: function onChange(e) {
           return _onChange(e.target.value, e);
         },
-        onKeyDown: (function (_onKeyDown) {
-          function onKeyDown(_x) {
-            return _onKeyDown.apply(this, arguments);
-          }
-
-          onKeyDown.toString = function () {
-            return _onKeyDown.toString();
-          };
-
-          return onKeyDown;
-        })(function (e) {
-          return onKeyDown(e.target.value, e);
-        })
+        onKeyDown: function onKeyDown(e) {
+          return _onKeyDown(e.target.value, e);
+        }
       };
       if (id) {
         attrs.id = id;
@@ -640,6 +630,7 @@ var RegionDropdown = (function (_React$Component2) {
       var name = _props6.name;
       var classes = _props6.classes;
       var disableWhenEmpty = _props6.disableWhenEmpty;
+      var _onKeyDown2 = _props6.onKeyDown;
 
       var disabled = disableWhenEmpty && country == '';
       var attrs = {
@@ -648,19 +639,9 @@ var RegionDropdown = (function (_React$Component2) {
         onChange: function onChange(e) {
           return _onChange2(e.target.value, e);
         },
-        onKeyDown: (function (_onKeyDown2) {
-          function onKeyDown(_x2) {
-            return _onKeyDown2.apply(this, arguments);
-          }
-
-          onKeyDown.toString = function () {
-            return _onKeyDown2.toString();
-          };
-
-          return onKeyDown;
-        })(function (e) {
-          return onKeyDown(e.target.value, e);
-        }),
+        onKeyDown: function onKeyDown(e) {
+          return _onKeyDown2(e.target.value, e);
+        },
         disabled: disabled
       };
       if (id) {

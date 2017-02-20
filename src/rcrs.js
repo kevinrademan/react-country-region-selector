@@ -155,7 +155,7 @@ class RegionDropdown extends React.Component {
   }
 
   render () {
-    const { value, country, onChange, id, name, classes, disableWhenEmpty } = this.props;
+    const { value, country, onChange, id, name, classes, disableWhenEmpty, onKeyDown } = this.props;
     const disabled = disableWhenEmpty && country == '';
     const attrs = {
       name,
