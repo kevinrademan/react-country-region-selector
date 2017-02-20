@@ -89,11 +89,11 @@ class Example extends React.Component {
       <div>
         <CountryDropdown
           value={country}
-          onChange={(val) => this.selectCountry(val)} />
+          onChange={(val,event) => this.selectCountry(val)} />
         <RegionDropdown
           country={country}
           value={region}
-          onChange={(val) => this.selectRegion(val)} />
+          onChange={(val,event) => this.selectRegion(val)} />
       </div>
     );
   }
@@ -250,6 +250,7 @@ Big thanks to Jed Watson there.
 
 ### Changelog
 
+- `1.0.4` - Feb 20, 2017 - Pass original event into onChange event 
 - `1.0.3` - Jan 2, 2016 - updated country-region-data, repo link fix. 
 - `1.0.2` - October 16, 2016 - Fix issue where source-data.js in lib had no country data.
 - `1.0.0` - July 1, 2016 - initial version.

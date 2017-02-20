@@ -106,7 +106,7 @@ var CountryDropdown = (function (_React$Component) {
         name: name,
         defaultValue: value,
         onChange: function onChange(e) {
-          return _onChange(e.target.value);
+          return _onChange(e.target.value, e);
         }
       };
       if (id) {
@@ -276,7 +276,7 @@ var RegionDropdown = (function (_React$Component2) {
         name: name,
         defaultValue: value,
         onChange: function onChange(e) {
-          return _onChange2(e.target.value);
+          return _onChange2(e.target.value, e);
         },
         disabled: disabled
       };

@@ -1,3 +1,5 @@
+'use strict';
+
 const gulp = require('gulp'),
       gulpUtil = require('gulp-util'),
       rename = require('gulp-rename'),
@@ -67,7 +69,7 @@ gulp.task('customBuild', function () {
   gulp.src('src/templates/source-data.template')
     .pipe(template({ __DATA__: JSON.stringify(filterCountries(minifyJSON(countriesJSON))) }))
     .pipe(rename('source-data.js'))
-    .pipe(gulp.dest('src'))
+    .pipe(gulp.dest('src'));
 });
 
 var taskConfig = {

@@ -23,8 +23,8 @@ class CountryDropdown extends React.Component {
 
     return this.state.countries.map(([countryName, countrySlug]) => {
       return (
-        <option value={(valueType === C.DISPLAY_TYPE_SHORT) ? countrySlug : countryName} key={countrySlug}>
-          {(labelType === C.DISPLAY_TYPE_SHORT) ? countrySlug : countryName}
+        <option value={valueType === C.DISPLAY_TYPE_SHORT ? countrySlug : countryName} key={countrySlug}>
+          {labelType === C.DISPLAY_TYPE_SHORT ? countrySlug : countryName}
         </option>
       );
     });
@@ -45,7 +45,7 @@ class CountryDropdown extends React.Component {
     const attrs = {
       name,
       defaultValue: value,
-      onChange: (e) => onChange(e.target.value)
+      onChange: (e) => onChange(e.target.value, e)
     };
     if (id) {
       attrs.id = id;
@@ -105,7 +105,7 @@ class RegionDropdown extends React.Component {
     if (nextProps.country === this.props.country) {
       return;
     }
-    this.setState({ regions: this.getRegions(nextProps.country) })
+    this.setState({ regions: this.getRegions(nextProps.country) });
   }
 
   getRegions (country) {
@@ -114,7 +114,7 @@ class RegionDropdown extends React.Component {
     }
 
     const { countryValueType } = this.props;
-    const searchIndex = (countryValueType === C.DISPLAY_TYPE_FULL) ? 0 : 1;
+    const searchIndex = countryValueType === C.DISPLAY_TYPE_FULL ? 0 : 1;
     const regions = CountryRegionData.find((i) => { return i[searchIndex] === country; });
 
     // this could happen if the user is managing the state of the region/country themselves and screws up passing
@@ -132,8 +132,8 @@ class RegionDropdown extends React.Component {
   getRegionList () {
     const { labelType, valueType } = this.props;
     return this.state.regions.map(({ regionName, regionShortCode }) => {
-      const label = (labelType === C.DISPLAY_TYPE_FULL) ? regionName : regionShortCode;
-      const value = (valueType === C.DISPLAY_TYPE_FULL) ? regionName : regionShortCode;
+      const label = labelType === C.DISPLAY_TYPE_FULL ? regionName : regionShortCode;
+      const value = valueType === C.DISPLAY_TYPE_FULL ? regionName : regionShortCode;
       return <option value={value} key={regionName}>{label}</option>;
     });
   }
@@ -153,11 +153,11 @@ class RegionDropdown extends React.Component {
 
   render () {
     const { value, country, onChange, id, name, classes, disableWhenEmpty } = this.props;
-    const disabled = (disableWhenEmpty && country == '');
+    const disabled = disableWhenEmpty && country == '';
     const attrs = {
       name,
       defaultValue: value,
-      onChange: (e) => onChange(e.target.value),
+      onChange: (e) => onChange(e.target.value, e),
       disabled
     };
     if (id) {
