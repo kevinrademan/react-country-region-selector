@@ -161,6 +161,7 @@ class RegionDropdown extends React.Component {
       name,
       defaultValue: value,
       onChange: (e) => onChange(e.target.value, e),
+      onKeyDown: (e) => onKeyDown(e.target.value, e),
       disabled
     };
     if (id) {
@@ -188,6 +189,7 @@ RegionDropdown.propTypes = {
   showDefaultOption: React.PropTypes.bool,
   defaultOptionLabel: React.PropTypes.string,
   onChange: React.PropTypes.func,
+  onKeyDown: React.PropTypes.func,
   labelType: React.PropTypes.string,
   valueType: React.PropTypes.string,
   disableWhenEmpty: React.PropTypes.bool
@@ -202,6 +204,7 @@ RegionDropdown.defaultProps = {
   showDefaultOption: true,
   defaultOptionLabel: 'Select Region',
   onChange: () => {},
+  onKeyDown: () => {},
   countryValueType: C.DISPLAY_TYPE_FULL,
   labelType: C.DISPLAY_TYPE_FULL,
   valueType: C.DISPLAY_TYPE_FULL,
